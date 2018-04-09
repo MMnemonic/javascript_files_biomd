@@ -34,7 +34,12 @@ function init() {
            'Child 2'
          ]
       }
-    ]
+    ],
+    "plugins" : [ 
+		"contextmenu", "dnd", "search",
+		"state", "types", "wholerow", "checkbox" ]
+
+
 } });
 
 	// var to = false;
