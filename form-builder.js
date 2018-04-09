@@ -20,14 +20,31 @@ function init() {
 			"state", "types", "wholerow", "checkbox" ]
 	});
 
-	var to = false;
-	$('#demo_q').keyup(function () {
-		if(to) { clearTimeout(to); }
-		to = setTimeout(function () {
-			var v = $('#demo_q').val();
-			$('#html1').jstree(true).search(v);
-		}, 250);
-	});
+	$('#using_json').jstree({ 'core' : {
+    'data' : [
+       'Simple root node',
+       {
+         'text' : 'Root node 2',
+         'state' : {
+           'opened' : true,
+           'selected' : true
+         },
+         'children' : [
+           { 'text' : 'Child 1' },
+           'Child 2'
+         ]
+      }
+    ]
+} });
+
+	// var to = false;
+	// $('#demo_q').keyup(function () {
+	// 	if(to) { clearTimeout(to); }
+	// 	to = setTimeout(function () {
+	// 		var v = $('#demo_q').val();
+	// 		$('#html1').jstree(true).search(v);
+	// 	}, 250);
+	// });
 
 
 	$('#html1').jstree({
