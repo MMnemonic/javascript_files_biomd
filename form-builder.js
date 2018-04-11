@@ -16,6 +16,7 @@ function init() {
 	  })
 	  .jstree({
 	  core: {
+	  	check_callback: true,
 	    data: jsonData
 	  },
 	  plugins : [ "contextmenu", "dnd", "search", "checkbox"]
