@@ -19,7 +19,7 @@ function init() {
 	  	check_callback: true,
 	    data: jsonData
 	  },
-	  plugins : [ "contextmenu", "dnd", "search", "checkbox"]
+	  plugins : [ "contextmenu", "dnd",  "checkbox"]
 	});
 
 };
