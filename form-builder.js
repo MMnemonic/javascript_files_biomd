@@ -87,7 +87,7 @@ function init() {
 	// 	"plugins" : [ "contextmenu", "dnd", "search"]
 	// });
 
-};
+
 
 
 function demo_create() {
