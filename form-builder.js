@@ -92,9 +92,7 @@ function init() {
 
 function demo_create() {
 	var ref = $('#html1').jstree(true),
-		console.log("ref = " + ref);
 		sel = ref.get_selected();
-		console.log("sel = " + sel);
 	if(!sel.length) { return false; }
 	sel = sel[0];
 	sel = ref.create_node(sel, {"type":"file"});
