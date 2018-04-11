@@ -34,12 +34,7 @@ function init() {
 //            'Child 2'
 //          ]
 //       }
-//     ],
-//     "plugins" : [ 
-// 		"contextmenu", "dnd", "search",
-// 		"state", "types", "wholerow", "checkbox" ]
-
-
+//     ]
 // } });
 
 	// var to = false;
@@ -52,36 +47,38 @@ function init() {
 	// });
 
 
-	$('#html1').jstree({
-		"core" : {
-			"animation" : 0,
-			"check_callback" : true,
-			'force_text' : true,
-			"themes" : { "stripes" : true },
-			'data' : {
-				'url' : function (node) {
-					return node.id === '#' ? '/static/3.3.5/assets/ajax_demo_roots.json' : '/static/3.3.5/assets/ajax_demo_children.json';
-				},
-				'data' : function (node) {
-					return { 'id' : node.id };
-				}
-			}
-		},
-		"types" : {
-			"#" : { "max_children" : 1, "max_depth" : 4, "valid_children" : ["root"] },
-			"root" : { "icon" : "/static/3.3.5/assets/images/tree_icon.png", "valid_children" : ["default"] },
-			"default" : { "valid_children" : ["default","file"] },
-			"file" : { "icon" : "glyphicon glyphicon-file", "valid_children" : [] }
-		},
-		"plugins" : [ "contextmenu", "dnd", "search"]
-	});
+	// $('#html1').jstree({
+	// 	"core" : {
+	// 		"animation" : 0,
+	// 		"check_callback" : true,
+	// 		'force_text' : true,
+	// 		"themes" : { "stripes" : true },
+	// 		'data' : {
+	// 			'url' : function (node) {
+	// 				return node.id === '#' ? '/static/3.3.5/assets/ajax_demo_roots.json' : '/static/3.3.5/assets/ajax_demo_children.json';
+	// 			},
+	// 			'data' : function (node) {
+	// 				return { 'id' : node.id };
+	// 			}
+	// 		}
+	// 	},
+	// 	"types" : {
+	// 		"#" : { "max_children" : 1, "max_depth" : 4, "valid_children" : ["root"] },
+	// 		"root" : { "icon" : "/static/3.3.5/assets/images/tree_icon.png", "valid_children" : ["default"] },
+	// 		"default" : { "valid_children" : ["default","file"] },
+	// 		"file" : { "icon" : "glyphicon glyphicon-file", "valid_children" : [] }
+	// 	},
+	// 	"plugins" : [ "contextmenu", "dnd", "search"]
+	// });
 
 };
 
 
 function demo_create() {
 	var ref = $('#html1').jstree(true),
+		console.log("ref = " + ref);
 		sel = ref.get_selected();
+		console.log("sel = " + sel);
 	if(!sel.length) { return false; }
 	sel = sel[0];
 	sel = ref.create_node(sel, {"type":"file"});
@@ -102,9 +99,3 @@ function demo_delete() {
 	if(!sel.length) { return false; }
 	ref.delete_node(sel);
 };
-
-
-
-
-
-
