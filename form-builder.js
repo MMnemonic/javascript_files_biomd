@@ -7,22 +7,34 @@ $.getScript( "//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js", func
           });
 
 
-
-
-
+var jsonData = [{"id":"j1_1","text":"Root node 1","icon":true,"li_attr":{"id":false},"a_attr":{"href":"#","id":"j1_1_anchor"},"state":{"loaded":true,"opened":true,"selected":false,"disabled":false},"data":{},"children":[{"id":"j1_2","text":"Child node 1","icon":true,"li_attr":{"id":false},"a_attr":{"href":"#","id":"j1_2_anchor"},"state":{"loaded":true,"opened":false,"selected":false,"disabled":false},"data":{},"children":[],"type":"default"},{"id":"j1_3","text":"Child node 2","icon":true,"li_attr":{"id":false},"a_attr":{"href":"#","id":"j1_3_anchor"},"state":{"loaded":true,"opened":false,"selected":false,"disabled":false},"data":{},"children":[],"type":"default"}],"type":"default"}];
 
 function init() {
-    $('#html1').jstree({
-		'core' : {
-			"data" : [{"id":"j1_1","text":"Root node 1","icon":true,"li_attr":{"id":false},"a_attr":{"href":"#","id":"j1_1_anchor"},"state":{"loaded":true,"opened":true,"selected":false,"disabled":false},"data":{},"children":[{"id":"j1_2","text":"Child node 1","icon":true,"li_attr":{"id":false},"a_attr":{"href":"#","id":"j1_2_anchor"},"state":{"loaded":true,"opened":false,"selected":false,"disabled":false},"data":{},"children":[],"type":"default"},{"id":"j1_3","text":"Child node 2","icon":true,"li_attr":{"id":false},"a_attr":{"href":"#","id":"j1_3_anchor"},"state":{"loaded":true,"opened":false,"selected":false,"disabled":false},"data":{},"children":[],"type":"default"}],"type":"default"}];
-			"themes" : { "stripes" : true },	
-			"force_text" : true,
-			"check_callback" : true
-		},
-		"plugins" : [ 
-			"contextmenu", "dnd", "search",
-			"state", "types", "wholerow", "checkbox" ]
+	$('#html1')
+	  .on('changed.jstree', function (e, data) {
+	    var objNode = data.instance.get_node(data.selected);
+	  })
+	  .jstree({
+	  core: {
+	    data: jsonData
+	  },
+	  plugins : [ "contextmenu", "dnd", "search", "checkbox"]
 	});
+
+};
+
+
+// function init() {
+//     $('#html1').jstree({
+// 		'core' : {
+// 			"themes" : { "stripes" : true },	
+// 			"force_text" : true,
+// 			"check_callback" : true
+// 		},
+// 		"plugins" : [ 
+// 			"contextmenu", "dnd", "search",
+// 			"state", "types", "wholerow", "checkbox" ]
+// 	});
 
 // 	$('#using_json').jstree({ 'core' : {
 //     'data' : [
